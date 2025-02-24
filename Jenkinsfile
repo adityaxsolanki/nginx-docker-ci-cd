@@ -5,7 +5,7 @@ pipeline {
         CONTAINER_NAME = "nginx-container"
     }
     stages {
-        
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $IMAGE_NAME .'
@@ -27,10 +27,12 @@ pipeline {
                 sh 'docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME'
             }
         }
-        
-         stage('Deploy to EKS') {
+
+        stage('Deploy to EKS') {
             steps {
                 sh 'kubectl apply -f deployment.yaml'
-    }
-  }
+            }  // ✅ Yeh missing closing bracket add kiya
+        }  // ✅ Yeh missing closing bracket add kiya
+
+    }  // ✅ Yeh missing closing bracket add kiya
 }
