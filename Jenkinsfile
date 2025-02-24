@@ -27,5 +27,10 @@ pipeline {
                 sh 'docker run -d -p 80:80 --name $CONTAINER_NAME $IMAGE_NAME'
             }
         }
+        
+         stage('Deploy to EKS') {
+            steps {
+                sh 'kubectl apply -f deployment.yaml'
     }
+  }
 }
