@@ -28,9 +28,12 @@ pipeline {
             }
         }
 
-        stage('Deploy to EKS') {
+        stage('Deploy to K3s') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
+                sh '''
+                kubectl apply -f deployment.yaml
+                kubectl apply -f service.yaml
+                '''
             }  // ✅ Yeh missing closing bracket add kiya
         }  // ✅ Yeh missing closing bracket add kiya
 
