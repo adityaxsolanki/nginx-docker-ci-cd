@@ -3,7 +3,8 @@ pipeline {
     environment {
         IMAGE_NAME = "my-nginx"
         CONTAINER_NAME = "nginx-container"
-    }
+        KUBECONFIG = "/home/jenkins/.kube/config"  // ✅ Add this line
+      }
     stages {
 
         stage('Build Docker Image') {
